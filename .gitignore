@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ML artifacts (large model files — commit only if using Git LFS)
+backend/ml/artifacts/*.pkl
+backend/ml/artifacts/*.joblib
+backend/ml/artifacts/*.json
+backend/ml/artifacts/*.h5
+backend/ml/artifacts/*.pt
+backend/ml/artifacts/*.onnx
+
+# Data (raw/processed data is large — commit only small samples)
+data/raw/
+data/processed/
+# Keep samples committed
+!data/samples/
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Node / Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/cache/
+frontend/.cache/
+frontend/coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
