@@ -8,9 +8,9 @@ Built to demonstrate sports analytics, ML modeling, and full-stack engineering s
 
 ## Motivation
 
-Most public "sports analytics" demos use toy datasets. This project uses **StatsBomb Open Data**. real, event-level tracking data from professional matches (La Liga, Champions League, Premier League, etc.) — to build models that mirror what clubs actually use internally.
+This project uses **StatsBomb Open Data**. Data from professional matches (La Liga, Champions League, Premier League, etc.) to build models like what football clubs actually use internally.
 
-The goal is not just accurate predictions, but explainable, visualizable analytics that a coach or performance analyst can act on.
+The goal is not only accurate predictions, but explainable, visualizable analytics that a coach or performance analyst can use.
 
 ---
 
