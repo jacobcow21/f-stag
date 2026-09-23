@@ -6,9 +6,7 @@ pydantic-settings==2.6.1
 python-dotenv==1.0.1
 
 # Database
-motor==3.6.0          # async MongoDB driver
-pymongo==4.10.1       # sync MongoDB (motor dependency)
-dnspython==2.7.0      # required for mongodb+srv:// URIs
+sqlalchemy==2.0.36
 
 # ML / data
 pandas==2.2.3
