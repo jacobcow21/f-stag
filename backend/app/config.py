@@ -2,8 +2,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    mongodb_uri: str
-    mongodb_db_name: str = "soccer_analytics"
     api_host: str = "0.0.0.0"
     api_port: int = 8000
     api_env: str = "development"
