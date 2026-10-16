@@ -20,8 +20,8 @@ The goal is not only accurate predictions, but explainable, visualizable analyti
 |---|---|
 | Data / ML | Python, pandas, scikit-learn, XGBoost, statsbombpy |
 | Visualizations | matplotlib, plotly, mplsoccer |
-| Backend API | FastAPI, pydantic, motor (async MongoDB) |
-| Database | MongoDB Atlas |
+| Backend API | FastAPI, pydantic|
+| Database | None for now. Will use SQLite later once a database is implemented |
 | Frontend | Angular 21, TypeScript |
 | Data Source | StatsBomb Open Data (free, public) |
 
@@ -83,7 +83,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 cp .env.example .env
-# Fill in MONGODB_URI and other vars
 
 uvicorn app.main:app --reload
 ```
