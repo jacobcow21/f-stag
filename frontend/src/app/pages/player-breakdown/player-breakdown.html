@@ -1,4 +1,47 @@
 <section>
-  <h2>Player / Tactical Breakdown</h2>
-  <p>Player stats — placeholder. Will show xG per 90, shot maps, xT contributions, and passing network involvement.</p>
+  <a routerLink="/players">&larr; All Players</a>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <!-- Player list -->
+  <ng-container *ngIf="!playerId && !loading && !error">
+    <h2>Players — La Liga 2020/21</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Team</th>
+          <th>Events</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of players">
+          <td>
+            <a [routerLink]="['/players', p.player_id]">{{ p.player }}</a>
+          </td>
+          <td>{{ p.team }}</td>
+          <td>{{ p.event_count }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <!-- Player detail -->
+  <ng-container *ngIf="playerId && detail && !loading">
+    <h2>{{ detail.player }}</h2>
+    <p>{{ detail.team }}</p>
+
+    <h3>Season Stats</h3>
+    <table>
+      <thead><tr><th>Stat</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Shots</td><td>{{ detail.stats.shots }}</td></tr>
+        <tr><td>Goals</td><td>{{ detail.stats.goals }}</td></tr>
+        <tr><td>Passes</td><td>{{ detail.stats.passes }}</td></tr>
+        <tr><td>Key Passes</td><td>{{ detail.stats.key_passes }}</td></tr>
+        <tr><td>Dribbles Completed</td><td>{{ detail.stats.dribbles_completed }}</td></tr>
+      </tbody>
+    </table>
+  </ng-container>
 </section>
