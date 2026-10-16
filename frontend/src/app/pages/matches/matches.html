@@ -1,4 +1,56 @@
 <section>
-  <h2>Matches</h2>
-  <p>Match list — placeholder. Will show competition, teams, date, and xG totals per match.</p>
+  <a routerLink="/matches">&larr; All Matches</a>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <!-- Match list -->
+  <ng-container *ngIf="!matchId && !loading && !error">
+    <h2>Matches — La Liga 2020/21</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Date</th>
+          <th>Home</th>
+          <th>Score</th>
+          <th>Away</th>
+          <th>Stadium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of matches">
+          <td>{{ m.match_week }}</td>
+          <td>{{ m.match_date }}</td>
+          <td>{{ m.home_team }}</td>
+          <td>
+            <a [routerLink]="['/matches', m.match_id]">
+              {{ m.home_score }} – {{ m.away_score }}
+            </a>
+          </td>
+          <td>{{ m.away_team }}</td>
+          <td>{{ m.stadium }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <!-- Match detail -->
+  <ng-container *ngIf="matchId && detail && !loading">
+    <h2>{{ detail.match.home_team }} {{ detail.match.home_score }} – {{ detail.match.away_score }} {{ detail.match.away_team }}</h2>
+    <p>{{ detail.match.match_date }} · {{ detail.match.stadium }} · Week {{ detail.match.match_week }}</p>
+
+    <h3>Event Summary</h3>
+    <table>
+      <thead><tr><th>Stat</th><th>Count</th></tr></thead>
+      <tbody>
+        <tr><td>Total Events</td><td>{{ detail.event_summary.total_events }}</td></tr>
+        <tr><td>Shots</td><td>{{ detail.event_summary.shots }}</td></tr>
+        <tr><td>Passes</td><td>{{ detail.event_summary.passes }}</td></tr>
+        <tr><td>Carries</td><td>{{ detail.event_summary.carries }}</td></tr>
+        <tr><td>Dribbles</td><td>{{ detail.event_summary.dribbles }}</td></tr>
+        <tr><td>Pressures</td><td>{{ detail.event_summary.pressures }}</td></tr>
+      </tbody>
+    </table>
+  </ng-container>
 </section>
